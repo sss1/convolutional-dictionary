@@ -22,10 +22,6 @@ R(datasample(1:numel(R), R_1, 'Replace', false)) = 1;
 % X is the Gaussian data, centered at the convolution of R and D
 X = normrnd(sum(multiconv(R, D), 2), sigma);
 
-% For debugging purposes only! Never use otherwise! % TODO: Test; remove this!
-% R_hat = R;
-% D_hat = normrnd(D, 0.5);
-
 [R_hat, D_hat, reconstruction_error] = learn_dictionary(X, n, K);
 D_hat_switched = D(:, [2 1]);
 
