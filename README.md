@@ -1,2 +1,2 @@
 # dictionary
-Implementation of dictionary learning for (epi)genetic tracks
+Implementation and experiments for a (theory) paper on covergence rates of convolutional sparse dictionary learning.
