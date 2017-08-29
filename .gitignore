@@ -1,3 +1,18 @@
+# Matlab data files
+*.mat
+
+# Matlab figure files
+figs/
+
+# Old files
+old/
+
+# My log files
+*.out
+
+# My data files
+data/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

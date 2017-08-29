@@ -8,8 +8,8 @@ num_trials = 100;
 Ns = round(logspace(2, 4, 13)); % Sample sizes
 K = 1;
 n = 10;
-sigma = 0.2;
-num_iterations = 200;
+sigma = 0.1;
+num_iterations = 500;
 
 Ss = {@(N) 5, @(N) round(N^(1/2)), @(N) round(N/10)};
 Ss_names = {'$s = 5$', '$s = \lfloor N^{-1/2} \rfloor$',  '$s = \lfloor N/10 \rfloor$'}; % for plotting labels

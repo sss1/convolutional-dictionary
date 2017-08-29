@@ -6,12 +6,12 @@ addpath /home/sss1/Desktop/projects/dictionary/sptoeplitz/;
 
 num_trials = 100;
 N = 1000;
-s = round(sqrt(N));
+s = floor(sqrt(N));
 K = 1;
 n = 10;
 sigma = 0.1;
 num_iterations = 500;
-lambdas = logspace(0.5, 3.5, 13);
+lambdas = logspace(-2, 4, 13);
 
 result = zeros(num_trials, length(lambdas)); % L_2 error in each trial
 ub = zeros(1, length(lambdas)); % upper bound

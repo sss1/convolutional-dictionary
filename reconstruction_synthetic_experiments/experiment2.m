@@ -6,7 +6,7 @@ addpath /home/sss1/Desktop/projects/dictionary/sptoeplitz/;
 
 num_trials = 100;
 N = 1000;
-s = sqrt(N);
+s = 10;
 K = 1;
 ns = round(logspace(0.5, 2, 10));
 sigma = 0.1;
@@ -27,8 +27,8 @@ for n_idx = 1:length(ns)
 
   parfor trial = 1:num_trials
 
-    D = normc(ones(n, K));
-    % D = normc(normrnd(0, 1, n, K));
+    % D = normc(ones(n, K));
+    D = normc(normrnd(0, 1, n, K));
     R = zeros(N - n + 1, K);
   
     for i = 1:s
