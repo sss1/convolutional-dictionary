@@ -27,7 +27,6 @@ for n_idx = 1:length(ns)
 
   parfor trial = 1:num_trials
 
-    % D = normc(ones(n, K));
     D = normc(normrnd(0, 1, n, K));
     R = zeros(N - n + 1, K);
   

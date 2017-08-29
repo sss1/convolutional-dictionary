@@ -57,29 +57,17 @@ function [R, D, reconstruction_error] ...
   end
 
   N = length(X);
-  % disp(['N: ' num2str(N) '  n: ' num2str(n) '  K: ' num2str(K)]);
 
   % Initialize each D_j as a uniformly random unit vector (with 0's at each end)
   D = normc([zeros(1, K); normrnd(0, 1, [(n - 2) K]); zeros(1, K)]);
 
-  % % Initialize the first column of R to retain low frequency components of
-  % % abs(X). Initialize other columns with non-negative noise.
-  % smoothing_kernel = normpdf((1:n) - mean(1:n), 0, n^(1/2));
-  % % R = repmat(conv(abs(X), smoothing_kernel, 'valid'), [1 K]);
-  % first_col = conv(abs(X), smoothing_kernel, 'valid');
-  % other_cols = max(normrnd(0, 2 * mean(first_col), [(N - n + 1), (K - 1)]), 0);
-  % R = [first_col other_cols];
-
   % Initialize each R_j as a non-negative IID gaussian vector
-  % size(X)
-  % [(N - n + 1), K]
   R = max(normrnd(0, var(X)./K, [(N - n + 1), K]), 0);
 
   if nargout >= 3
     reconstruction_error = zeros(num_iterations, 1);
   end
   for iteration = 1:num_iterations
-    % iteration
     gamma = gamma_0 .* (iteration.^(-1/2));
 
     D = D - gamma * grad_D(D, R, X, lambda_D_smooth, zero_edge);

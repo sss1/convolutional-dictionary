@@ -1,9 +1,6 @@
 clear;
 close all;
 
-addpath /home/sss1/Desktop/projects/dictionary/;
-addpath /home/sss1/Desktop/projects/dictionary/sptoeplitz/;
-
 num_trials = 100;
 N = 1000;
 s = floor(sqrt(N));

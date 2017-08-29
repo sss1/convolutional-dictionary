@@ -1,9 +1,6 @@
 clear;
 close all;
 
-addpath /home/sss1/Desktop/projects/dictionary/;
-addpath /home/sss1/Desktop/projects/dictionary/sptoeplitz/;
-
 num_trials = 100;
 Ns = round(logspace(2, 4, 13)); % Sample sizes
 
