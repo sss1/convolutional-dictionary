@@ -22,7 +22,7 @@ for lambda_idx = 1:length(lambdas)
 
   disp(['lambda: ' num2str(lambda)]);
   if lambda >= s % upper bound only holds assuming lambda >= s
-    ub(lambda_idx) = upper_bound(N, n, lambda, sigma);
+    ub(lambda_idx) = upper_bound(N, n, lambda, sigma, true);
   end
   lb(lambda_idx) = lower_bound(N, n, s, sigma);
 
@@ -41,7 +41,7 @@ for lambda_idx = 1:length(lambdas)
     X_0 = multiconv(R, D); % estimand
     X = normrnd(X_0, sigma); % data signal
   
-    [R_hat, D_hat, ~] = learn_constrained_sparse_dictionary(X, n, K, 'lambda_D_smooth', 0, 'lambda_R_sparse', lambda, 'num_iterations', num_iterations, 'zero_edge', false);
+    [R_hat, D_hat, ~] = general_dictionary(X, n, K, 'lambda_R_sparse', lambda, 'num_iterations', num_iterations);
     X_hat = multiconv(R_hat, D_hat); % estimate
   
     result(trial, lambda_idx) = sum((X_hat - X_0).^2)./N;

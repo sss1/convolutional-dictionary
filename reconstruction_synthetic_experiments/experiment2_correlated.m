@@ -22,7 +22,7 @@ for n_idx = 1:length(ns)
   n = ns(n_idx);
 
   disp(['n: ' num2str(n)]);
-  ub(n_idx) = upper_bound(N, n, s, sigma, true);
+  ub(n_idx) = upper_bound(N, n, s, sigma, false);
   lb(n_idx) = lower_bound(N, n, s, sigma);
 
   parfor trial = 1:num_trials
@@ -38,7 +38,7 @@ for n_idx = 1:length(ns)
     end
   
     X_0 = multiconv(R, D); % estimand
-    X = normrnd(X_0, sigma); % data signal
+    X = X_0 + normrnd(0, sigma); % data signal
   
     [R_hat, D_hat, ~] = general_dictionary(X, n, K, 'lambda_R_sparse', s, 'num_iterations', num_iterations);
     X_hat = multiconv(R_hat, D_hat); % estimate
@@ -49,5 +49,5 @@ for n_idx = 1:length(ns)
   end
 end
 
-save('/home/sss1/Desktop/projects/dictionary/reconstruction_synthetic_experiments/experiment2.mat', 'result', 'result_trivial_zero', 'result_trivial_X', 'ub', 'lb', 'ns');
-plot_experiment2;
+save('/home/sss1/Desktop/projects/dictionary/reconstruction_synthetic_experiments/experiment2_correlated.mat', 'result', 'result_trivial_zero', 'result_trivial_X', 'ub', 'lb', 'ns');
+plot_experiment2_correlated;

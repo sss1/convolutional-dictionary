@@ -1,7 +1,7 @@
 %clear;
 close all;
 
-load /home/sss1/Desktop/projects/dictionary/reconstruction_synthetic_experiments/experiment2.mat;
+load /home/sss1/Desktop/projects/dictionary/reconstruction_synthetic_experiments/experiment2_correlated.mat;
 
 figure;
 hold all;
@@ -18,9 +18,8 @@ ylabel('Average L_2 Error', 'FontSize', 20);
 set(gca, 'XScale', 'log', 'YScale', 'log');
 xlim([0.9*min(ns) 1.1*max(ns)]);
 ylim([0.9*min(lb) 1.1*max(ub)]);
-legend({'$\widehat{X}_s$', '$\widehat{X}_0$', '$\widehat{X}_{\infty}$', 'Upper bound', 'Lower bound'}, 'Interpreter', 'latex', 'FontSize', 20);
 fig_root = '/home/sss1/Desktop/projects/dictionary/reconstruction_synthetic_experiments/figs/';
-fig_name = [fig_root 'experiment2'];
+fig_name = [fig_root 'experiment2_correlated'];
 % set(gcf, 'Position', get(0,'Screensize')); % Maximize figure
 saveas(gcf, [fig_name '.fig']);
 saveas(gcf, [fig_name '.png']);
