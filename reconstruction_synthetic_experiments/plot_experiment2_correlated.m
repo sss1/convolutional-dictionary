@@ -1,7 +1,7 @@
 %clear;
 close all;
 
-load /home/sss1/Desktop/projects/dictionary/reconstruction_synthetic_experiments/experiment2_correlated.mat;
+load /home/sss1/Desktop/projects/dictionary/reconstruction_synthetic_experiments/experiment2_correlated_corrected.mat;
 
 figure;
 hold all;
@@ -17,7 +17,7 @@ xlabel('Dictionary Element Length ($n$)', 'Interpreter', 'latex', 'FontSize', 20
 ylabel('Average L_2 Error', 'FontSize', 20);
 set(gca, 'XScale', 'log', 'YScale', 'log');
 xlim([0.9*min(ns) 1.1*max(ns)]);
-ylim([0.9*min(lb) 1.1*max(ub)]);
+ylim([0.9*min(lb) 0.1]);
 fig_root = '/home/sss1/Desktop/projects/dictionary/reconstruction_synthetic_experiments/figs/';
 fig_name = [fig_root 'experiment2_correlated'];
 % set(gcf, 'Position', get(0,'Screensize')); % Maximize figure
